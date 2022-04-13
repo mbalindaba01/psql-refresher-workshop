@@ -11,7 +11,9 @@ describe('As part of the sql refresh workshop', () => {
 	const pgp = PgPromise({});
 	const db = pgp(DATABASE_URL);
 
-	before(async () => {
+	// we are explicitly not using an arrow function here to support this.timeout
+	before(async function (){
+		this.timeout(5000);
 		await db.none(`delete from garment`);
 		const commandText = fs.readFileSync('./sql/data.sql', 'utf-8');
 		await db.none(commandText)
