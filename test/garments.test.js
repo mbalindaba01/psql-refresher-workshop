@@ -82,11 +82,11 @@ describe('As part of the sql refresh workshop', () => {
 
 		// use db.none - change code below here...
 		const addGarment = 'insert into garment(description, img, season, gender, price) values ($1,$2,$3,$4,$5)'
-		db.none(addGarment, ['Long sleeve pink shirt', 'mens-128x128-455226.png', 'All Seasons', 'Male', '149.99'])
-		db.none(addGarment, ['Denin shorts(black)', 'mens-128x128-455127.png', 'Summer', 'Male', '199.99'])
-		db.none(addGarment, ['Long black skirt', 'skirt-128x128-455140.png', 'Summer', 'Female', '199.99'])
-		db.none(addGarment, ['Grey dress', 'frick-128x128-455120.png', 'Summer', 'Female', '249.99'])
-		db.none(addGarment, ['Long Sleeve Shirt Blue', 'womens-128x128-455147.png', 'Summer', 'Female', '199.99'])
+		await db.none(addGarment, ['Long sleeve pink shirt', 'mens-128x128-455226.png', 'All Seasons', 'Male', '149.99'])
+		await db.none(addGarment, ['Denin shorts(black)', 'mens-128x128-455127.png', 'Summer', 'Male', '199.99'])
+		await db.none(addGarment, ['Long black skirt', 'skirt-128x128-455140.png', 'Summer', 'Female', '199.99'])
+		await db.none(addGarment, ['Grey dress', 'frick-128x128-455120.png', 'Summer', 'Female', '249.99'])
+		await db.none(addGarment, ['Long Sleeve Shirt Blue', 'womens-128x128-455147.png', 'Summer', 'Female', '199.99'])
 		// write your code above this line
 
 		const gender_count_sql = 'select count(*) from garment where gender = $1'
