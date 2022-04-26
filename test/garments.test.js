@@ -103,19 +103,19 @@ describe('As part of the sql refresh workshop', () => {
 		// and below this line for this function will
 		const garmentsGrouped = await db.many('select count(*), gender from garment group by gender')
 		const expectedResult = [
-			  {
-			    count: '15',
-			    gender: 'Male'
-			  },
-			  {
-			    count: '16',
-			    gender: 'Female'
-			  },
-			  {
-			    count: '4',
-			    gender: 'Unisex'
-			  }
-			]
+			{
+				count: '4',
+				gender: 'Unisex'
+			},
+			{
+				count: '16',
+				gender: 'Female'
+			},
+			{
+				count: '15',
+				gender: 'Male'
+			}
+		]
 		assert.deepStrictEqual(expectedResult, garmentsGrouped)
 	});
 
